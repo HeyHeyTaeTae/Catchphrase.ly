@@ -21,16 +21,30 @@
     <header class="page-header">
       <h1>Catchphrase.ly</h1>
     </header>
+      <form class="form-inline" id="newPhrase">
+        <div class="form-group">
+        <label class="sr-only">Word</label>
+        <input name="word" type="text" class="form-control" id="phrases-input" placeholder="Enter Phrase!">
+        </div>
+        <div class="form-group">
+        <label class="sr-only">Definition</label>
+        <input name="definition" type="text" class="form-control" id="definitions-input" placeholder="Definition!">
+        </div>
+        <div class="checkbox">
+        </div>
+        <button type="submit" class="btn btn-default">Catch!</button>
+      </form>
     <!-- all foods! -->
     <ul class="list-group" id="phrases-ul">
     </ul>
   </div>
 </body>
   <!-- Underscore template -->
-  <script type="text/template" id="phrase-template">
+    <script type="text/template" id="phrases-template">
     <% _.each(collection, function(item){ %>
       <li class='list-group-item'><%= item.word %>
         <span class="label label-default"><%= item.definition%></span>
+        <button data-id="<%= item.id %>" onclick="Phrases.delete(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </li>
     <% }); %>
   </script>
